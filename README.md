@@ -52,21 +52,21 @@ python manage.py runserver
 * [x] Create a website using DjangoX as a template.
     - [x] Click the Use this template button on home page of DjangoX repository.
 * [x] Name your repo whatever you like.
-* [] Create a Django app of your choosing.
+* [x] Create a Django app of your choosing.
 * [] The specific functionality of the site is up to you but should have a model that makes use of get_user_model
 
 ### Implementation Notes
 
-* [] Delete the configuration files that aren’t needed anymore since we’re using    
-    - [] Poetry
-    - [] Pipfile
-    - [] Pipfile.lock
-    - [] Dockerfile
-    - [] docker-compose.yml
+* [x] Delete the configuration files that aren’t needed anymore since we’re using    
+    - [x] Poetry
+    - [x] Pipfile
+    - [x] Pipfile.lock
+    - [x] Dockerfile
+    - [x] docker-compose.yml
 
 ### User Acceptance Tests
 
-* [] Verify that your pages render as expected.
+* [x] Verify that your pages render as expected.
 
 ## Authors
 
