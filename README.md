@@ -53,7 +53,7 @@ python manage.py runserver
     - [x] Click the Use this template button on home page of DjangoX repository.
 * [x] Name your repo whatever you like.
 * [x] Create a Django app of your choosing.
-* [] The specific functionality of the site is up to you but should have a model that makes use of get_user_model
+* [x] The specific functionality of the site is up to you but should have a model that makes use of get_user_model
 
 ### Implementation Notes
 
