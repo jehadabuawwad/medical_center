@@ -1,7 +1,11 @@
 from django.urls import path
 
-from .views import DiscoverView
+from .views import (
+                    DiscoverListView,
+                    DiscoverCreateView,
+                    )
 
 urlpatterns = [
-    path('', DiscoverView.as_view(), name='discover'),
+    path('', DiscoverListView.as_view(), name='discover'),
+    path('create/',DiscoverCreateView.as_view(),name="create"),
 ]

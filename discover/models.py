@@ -1,8 +1,8 @@
 from django.db import models
-
-# Create your models here.
+from django.contrib.auth import get_user_model
 
 class Malady(models.Model):
+
     G1 = 'Male'
     G2 = 'Female'
     A1='True'
@@ -50,7 +50,7 @@ class Malady(models.Model):
     name=models.CharField(max_length=55,default=None)
     email=models.CharField(max_length=55,default=None)
     mobile=models.IntegerField(default=None)
-    
+    paitent=models.ForeignKey(get_user_model(),on_delete=models.CASCADE,null=True)
     age=models.IntegerField(default=None)
     bmi=models.IntegerField(default=None) 
     avg_glucose_level=models.IntegerField(default=None)    
