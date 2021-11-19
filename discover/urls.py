@@ -1,11 +1,9 @@
 from django.urls import path
 
 from .views import (
-                    DiscoverListView,
-                    DiscoverCreateView,
+                    discover_create_view,
                     )
 
 urlpatterns = [
-    path('', DiscoverListView.as_view(), name='discover'),
-    path('create/',DiscoverCreateView.as_view(),name="create"),
+    path('create/',discover_create_view,name="create"),
 ]
