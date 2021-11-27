@@ -7,6 +7,5 @@ class HomePageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name = 'pages/about.html'
 
-
 class DiscoverPageView(TemplateView):
     template_name = 'pages/discover.html'

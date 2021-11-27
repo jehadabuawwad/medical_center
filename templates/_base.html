@@ -46,7 +46,7 @@
             <div class="relative flex items-center justify-between h-16">
               <img
                 style="width: 225px"
-                src="../../static/images/nav-logo.png"
+                src="../../../static/images/nav-logo.png"
                 alt="Workflow"
               />
               <div
@@ -160,8 +160,9 @@
                       >Discover</a
                     >
 
-                    <a
-                      style="margin-right: 550px"
+                    
+                  <a
+                      style="margin-right: 50px"
                       href="{% url 'about'%}"
                       class="
                         text-gray-300
@@ -174,6 +175,22 @@
                       "
                       >About Us</a
                     >
+                    {% if user.is_authenticated %}
+                    <a
+                    style="margin-right: 50px"
+                    href="{% url 'result_list'%}"
+                    class="
+                      text-gray-300
+                      hover:bg-gray-700 hover:text-white
+                      px-3
+                      py-2
+                      rounded-md
+                      text-sm
+                      font-medium
+                    "
+                    >Result</a
+                  >
+                  {% endif %}
                   </div>
                 </div>
                 <div class="flex-shrink-0 flex items-center">

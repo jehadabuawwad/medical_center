@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home page{% endblock title %}
+
+{% block content %}
+
+<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6">
+      <p style="font-size: 30px;" class="text-lg leading-6 font-medium text-gray-900">
+        Your Result 
+      </p>
+      <p style="font-size: 20px; color: red;" class="mt-1 max-w-2xl text-sm text-gray-500">
+        Notice : Our Inelegant system analyzed your data and this
+        is the result, while this result is not final and you need 
+        to discuss it with your doctor
+      </p>
+    </div>
+    <div class="border-t border-gray-200">
+      
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          
+            <h3>Paitent Name :  {{ malady.name }}</h3>
+            <h3 style="color:green;">Test Result: {{ malady.status }}</h3>
+        </div>
+    </div>
+  </div>
+
+            
+{% endblock content %}
