@@ -8,7 +8,8 @@ pd.set_option("max_rows", None)
 
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.impute import SimpleImputer
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.utils import resample
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
 
@@ -114,22 +115,30 @@ class AIModel:
         not_guilty_avg_glucose_level = np.delete(guilty, index_of_outlier, axis=0)
         self.Dataset["avg_glucose_level"][0:5110] = not_guilty_avg_glucose_level
 
+    def data_sampling(self):
+        df_majority = self.Dataset[self.Dataset.iloc[:, 17] == 1]
+        df_minority = self.Dataset[self.Dataset.iloc[:, 17] == 0]
+        df_majority_downsampled = resample(df_majority, replace=False, n_samples=249)
+        df_minority_upsampled = resample(df_minority, replace=True, n_samples=249)
+        self.Dataset = pd.concat([df_majority_downsampled, df_minority_upsampled])
+
     def data_splitting(self):
         features = self.Dataset.drop(["stroke"], axis=1)
         target = self.Dataset["stroke"]
-
         X_train, X_test, y_train, y_test = train_test_split(
-            features, target, test_size=0.15, random_state=0
+            features,
+            target,
+            test_size=0.15,
         )
         return X_train, X_test, y_train, y_test
 
-    def predict(self,data):
+    def predict(self, data):
         self.reading_dataset()
         self.data_encoding()
         self.data_imputing()
         self.outlires_dealing()
+        self.data_sampling()
         X_train, X_test, y_train, y_test = self.data_splitting()
-
-        model = MultinomialNB(alpha=50)
+        model = LogisticRegression(C=0.01, penalty="l2", random_state=1)
         model = model.fit(X_train, y_train)
         return model.predict([data])
