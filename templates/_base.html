@@ -145,7 +145,7 @@
                       aria-current="page"
                       >Home</a
                     >
-
+                    {% if user.is_authenticated %}
                     <a
                       href="{% url 'discover'%}"
                       class="
@@ -159,7 +159,7 @@
                       "
                       >Discover</a
                     >
-
+                    {% endif %}
                     
                   <a
                       style="margin-right: 50px"
