@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home page{% endblock title %}
+
+{% block content %}
+
+<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6">
+      <p style="font-size: 30px;" class="text-lg leading-6 font-medium text-gray-900">
+        Result 
+      </p>
+      <p style="font-size: 25px;" class="mt-1 max-w-2xl text-sm text-gray-500">
+        In the following section there are the list of
+        your tests ..
+      </p>
+    </div>
+    <div class="border-t border-gray-200">
+      <dl>
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          
+          {% for disese in result_list %}
+          <dt style="font-size: 25px;" class="text-sm font-medium text-gray-500">
+            Test Number : {{disese.pk}} 
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">  
+            
+              
+              <a style="font-size: 25px; text-decoration: none;" href="{% url 'result_detail' disese.pk %}">Result</a>
+              
+            
+          </dd>
+          {% endfor %}
+        </div>
+
+
+      </dl>
+    </div>
+  </div>
+
+            
+{% endblock content %}
